@@ -2,319 +2,644 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ethan Molino - IT Student</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethan Molino - IT Student</title>
+    <link rel="icon" type="image/png" href="logo.png">
 
- <link rel="icon" type="image/png" href="logo.png">
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    body {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #ffffff;
-      color: #1e293b;
-      line-height: 1.7;
-      min-height: 100vh;
-      display: flex;
-      font-size: 16px;
-    }
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #ffffff;
+            color: #1e293b;
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            font-size: 16px;
+        }
 
-    .sidebar {
-      width: 400px;
-      background: #fafbfc;
-      padding: 48px 32px;
-      text-align: center;
-      border-right: 1px solid #e2e8f0;
-      box-shadow: 4px 0 16px rgba(0, 0, 0, 0.04);
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow-y: auto;
-      overflow-x: hidden;
-      scrollbar-width: thin;
-      scrollbar-color: #cbd5e1 #f1f5f9;
-    }
+        .sidebar {
+            width: 400px;
+            min-width: 400px;
+            background: #fafbfc;
+            padding: 48px 32px;
+            text-align: center;
+            border-right: 1px solid #e2e8f0;
+            box-shadow: 4px 0 16px rgba(0, 0, 0, 0.04);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f1f5f9;
+        }
 
-    .sidebar::-webkit-scrollbar {
-      width: 6px;
-    }
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
 
-    .sidebar::-webkit-scrollbar-track {
-      background: #f1f5f9;
-      border-radius: 3px;
-    }
+        .sidebar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 3px;
+        }
 
-    .sidebar::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 3px;
-    }
+        .sidebar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
 
-    .sidebar::-webkit-scrollbar-thumb:hover {
-      background: #94a3b8;
-    }
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
 
-    .profile-img {
-      width: 180px;
-      height: 180px;
-      background: linear-gradient(135deg, #ffffff, #ffffff);
-      border-radius: 50%;
-      margin: 0 auto 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      color: rgb(255, 255, 255);
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-    }
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: rgb(255, 255, 255);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
 
-    .sidebar h2 {
-      font-size: 30px;
-      font-weight: 800;
-      margin-bottom: 8px;
-      color: #1e293b;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      hyphens: auto;
-    }
+        .sidebar h2 {
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #1e293b;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
 
-    .sidebar .title {
-      font-size: 19px;
-      color: #64748b;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 32px;
-    }
+        .sidebar .title {
+            font-size: 19px;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 32px;
+        }
 
-    .info {
-      text-align: left;
-      font-size: 16px;
-      color: #475569;
-      background: #ffffff;
-      padding: 32px;
-      border-radius: 16px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 4px 12px rgba(206, 45, 45, 0.06);
-      overflow: visible;
-    }
+        .info {
+            text-align: left;
+            font-size: 16px;
+            color: #475569;
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            overflow: visible;
+        }
 
-    .info-item {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin: 24px 0;
-    }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin: 24px 0;
+        }
 
-    .info-label {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      color: #1e293b;
-      font-weight: 700;
-      font-size: 15px;
-    }
+        .info-label {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: #1e293b;
+            font-weight: 700;
+            font-size: 15px;
+        }
 
-    .info-icon {
-      width: 23px;
-      height: 23px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgb(196, 206, 214);
-      color: white;
-      border-radius: 6px;
-      font-size: 12px;
-    }
+        .info-icon {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #c4ced6;
+            color: white;
+            border-radius: 6px;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
 
-    .info-value {
-      font-size: 16px;
-      color: #475569;
-      padding-left: 36px;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      hyphens: auto;
-      font-weight: 600;
-    }
+        .info-value {
+            font-size: 16px;
+            color: #475569;
+            padding-left: 44px;
+            overflow-wrap: anywhere;
+            font-weight: 600;
+        }
 
-    .main {
-      flex: 1;
-      padding: 64px 48px;
-      max-width: 100%;
-      border: 1px solid #e2e8f0;
-      min-height: 100vh;
-    }
+        .main {
+            flex: 1;
+            min-width: 0;
+            padding: 35px 48px 64px;
+            max-width: 100%;
+            min-height: 100vh;
+        }
 
-    .hero {
-      margin-bottom: 72px;
-      padding-bottom: 40px;
-      border-bottom: 2px solid #f1f5f9;
-    }
+        .navbar {
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            width: fit-content;
+            max-width: 100%;
+            margin-left: auto;
+            margin-bottom: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7px;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.07);
+            transition: all 0.3s ease;
+        }
 
-    .hero h1 {
-      font-size: 38px;
-      font-weight: 800;
-      margin-bottom: 24px;
-      letter-spacing: -0.02em;
-      color: #1e293b;
-      line-height: 1.2;
-    }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            list-style: none;
+        }
 
-    .hero-subtitle {
-      font-size: 20px;
-      color: #64748b;
-      font-weight: 500;
-      max-width: 800px;
-      line-height: 1.7;
-      padding: 28px;
-      background: linear-gradient(135deg, #fafbfc 0%, #f8fafc 100%);
-      border-left: 4px solid #475569;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    }
+        .nav-links a {
+            display: block;
+            text-decoration: none;
+            color: #64748b;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 9px 20px;
+            border-radius: 9px;
+            transition: all 0.25s ease;
+        }
 
-    .section {
-      margin-bottom: 80px;
-    }
+        .nav-links a:hover {
+            background: #f1f5f9;
+            color: #1e293b;
+        }
 
-    .section h2 {
-      font-size: 36px;
-      font-weight: 800;
-      margin-bottom: 32px;
-      color: #1e293b;
-      padding-bottom: 16px;
-      border-bottom: 3px solid #f1f5f9;
-    }
+        .nav-links a.active {
+            background: #1e293b;
+            color: #ffffff;
+            box-shadow: 0 3px 8px rgba(30, 41, 59, 0.18);
+        }
 
-    .card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      padding: 36px;
-      border-radius: 20px;
-      margin-bottom: 24px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-      transition: all 0.3s ease;
-    }
+        .hero {
+            margin-bottom: 72px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #f1f5f9;
+            scroll-margin-top: 110px;
+        }
 
-    .card:hover {
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-      transform: translateY(-4px);
-    }
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            color: #1e293b;
+            line-height: 1.2;
+        }
 
-    .card h3 {
-      font-size: 26px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: #1e293b;
-    }
+        .hero-subtitle,
+        .about-card {
+            font-size: 20px;
+            color: #64748b;
+            font-weight: 500;
+            max-width: 800px;
+            line-height: 1.7;
+            padding: 28px;
+            background: linear-gradient(135deg, #fafbfc 0%, #f8fafc 100%);
+            border: none;
+            border-left: 4px solid #475569;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
 
-    .card p {
-      color: #475569;
-      font-size: 18px;
-      line-height: 1.7;
-    }
+        .section {
+            margin-bottom: 80px;
+            scroll-margin-top: 110px;
+        }
 
-    .card a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-    }
+        .section h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 32px;
+            color: #1e293b;
+            padding-bottom: 16px;
+            border-bottom: 3px solid #f1f5f9;
+        }
 
-    .card a:hover {
-      text-decoration: underline;
-    }
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 36px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 24px;
-      margin-top: 24px;
-      width: 100%;
-    }
+        .card:hover {
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+            border-color: #cbd5e1;
+        }
 
-    @media (max-width: 768px) {
-      body { flex-direction: column; }
-      .sidebar { width: 100%; height: auto; position: static; }
-      .main { padding: 40px 28px; }
-    }
-  </style>
+        .card h3 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1e293b;
+        }
+
+        .card p {
+            color: #475569;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .card a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s ease;
+        }
+
+        .card a:hover {
+            color: #1e293b;
+            text-decoration: underline;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+            width: 100%;
+        }
+
+        footer {
+            text-align: center;
+            color: #94a3b8;
+            padding: 28px 10px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 320px;
+                min-width: 320px;
+                padding: 40px 24px;
+            }
+
+            .main {
+                padding: 28px 30px 60px;
+            }
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .info {
+                padding: 22px;
+            }
+
+            .navbar {
+                margin-bottom: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                padding-bottom: 85px;
+            }
+
+            .sidebar {
+                width: 100%;
+                min-width: 0;
+                height: auto;
+                position: relative;
+                padding: 35px 24px;
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .sidebar h2 {
+                font-size: 27px;
+            }
+
+            .info {
+                max-width: 480px;
+                margin: 0 auto;
+                text-align: left;
+            }
+
+            .main {
+                width: 100%;
+                padding: 25px 22px 40px;
+            }
+
+            .navbar {
+                position: fixed;
+                top: auto;
+                bottom: 14px;
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                width: 92%;
+                max-width: 420px;
+                margin: 0;
+                padding: 8px;
+                border-radius: 13px;
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 5px 25px rgba(0, 0, 0, 0.13);
+            }
+
+            .nav-links {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .nav-links li {
+                flex: 1;
+            }
+
+            .nav-links a {
+                width: 100%;
+                padding: 11px 10px;
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .hero {
+                margin-bottom: 50px;
+                scroll-margin-top: 30px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-subtitle,
+            .about-card {
+                font-size: 17px;
+                padding: 22px;
+            }
+
+            .section {
+                margin-bottom: 55px;
+                scroll-margin-top: 30px;
+            }
+
+            .section h2 {
+                font-size: 29px;
+            }
+
+            .card {
+                padding: 26px;
+            }
+
+            .card h3 {
+                font-size: 23px;
+            }
+
+            .card p {
+                font-size: 16px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .main {
+                padding: 25px 16px 35px;
+            }
+
+            .navbar {
+                width: 94%;
+                max-width: none;
+                padding: 7px;
+            }
+
+            .nav-links {
+                gap: 3px;
+            }
+
+            .nav-links a {
+                padding: 10px 7px;
+                font-size: 12px;
+            }
+
+            .info {
+                padding: 20px 16px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero-subtitle,
+            .about-card {
+                font-size: 15px;
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <div class="sidebar">
-    <img src="profile picture.png" alt="Profile" class="profile-img">
-    <h2>Ethan Molino</h2>
-    <p class="title">IT Student</p>
 
-    <div class="info">
-      <div class="info-item">
-        <div class="info-label">
-          <div class="info-icon">✉️</div>
-          <strong>Email:</strong>
-        </div>
-        <div class="info-value">ethan.molino.29@gmail.com</div>
-      </div>
-      <div class="info-item">
-        <div class="info-label">
-          <div class="info-icon">📘</div>
-          <strong>Facebook:</strong>
-        </div>
-        <div class="info-value">Ethan Molino</div>
-      </div>
-      <div class="info-item">
-        <div class="info-label">
-          <div class="info-icon">🏫</div>
-          <strong>School:</strong>
-        </div>
-        <div class="info-value">PUP - Sto. Tomas</div>
-      </div>
-      <div class="info-item">
-        <div class="info-label">
-          <div class="info-icon">📍</div>
-          <strong>Location:</strong>
-        </div>
-        <div class="info-value">Calamba City, Laguna</div>
-      </div>
-    </div>
-  </div>
+    <aside class="sidebar">
 
-  <div class="main">
-    <section class="hero">
-      <h1>About Me</h1>
-      <div class="hero-subtitle">
-        I am a sophomore student at Polytechnic University of the Philippines Sto. Tomas Campus, currently taking a
-        Diploma in Technology. I am focused on developing my technical skills and gaining practical knowledge that will
-        help me succeed in my future career.
-      </div>
-    </section>
+        <img src="profile picture.png" class="profile-img">
 
-    <section class="section">
-      <h2>My Projects</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Project 1</h3>
-          <p>
-            <a href="https://ethanmolino.github.io/A02.github.io/" target="_blank">Activity 2</a>
-          </p>
+        <h2>Ethan Molino</h2>
+        <p class="title">IT Student</p>
+
+        <div class="info">
+
+            <div class="info-item">
+                <div class="info-label">
+                    <div class="info-icon">✉️</div>
+                    <strong>Email:</strong>
+                </div>
+                <div class="info-value">ethan.molino.29@gmail.com</div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-label">
+                    <div class="info-icon">📘</div>
+                    <strong>Facebook:</strong>
+                </div>
+                <div class="info-value">Ethan Molino</div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-label">
+                    <div class="info-icon">🏫</div>
+                    <strong>School:</strong>
+                </div>
+                <div class="info-value">PUP - Sto. Tomas</div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-label">
+                    <div class="info-icon">📍</div>
+                    <strong>Location:</strong>
+                </div>
+                <div class="info-value">Calamba City, Laguna</div>
+            </div>
+
         </div>
-        <div class="card">
-          <h3>Project 2</h3>
-          <p>          <p>
-            <a href="https://ethanmolino.github.io/Midterm.io/" target="_blank">Midterm</a>
-          </p>
-        </div>
-        <div class="card">
-          <h3>Project 3</h3>
-          <p>description</p>
-        </div>
-      </div>
-    </section>
-  </div>
+    </aside>
+
+    <main class="main">
+
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li>
+                    <a href="#home" class="active">Home</a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="hero" id="home">
+
+            <h1>Welcome to My Portfolio</h1>
+
+            <div class="hero-subtitle">
+                I am Ethan Molino, an IT student at Polytechnic University
+                of the Philippines - Sto. Tomas Campus. I am passionate about
+                technology and continuously improving my knowledge and skills
+                in the field of Information Technology.
+            </div>
+
+        </section>
+
+        <section class="section" id="about">
+
+            <h2>About Me</h2>
+
+            <div class="about-card">
+                I am a sophomore student at Polytechnic University of the Philippines
+                Sto. Tomas Campus, currently taking a Diploma in Technology.
+                I am focused on developing my technical skills and gaining practical
+                knowledge that will help me succeed in my future career.
+            </div>
+
+        </section>
+
+        <section class="section" id="projects">
+
+            <h2>My Projects</h2>
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>Project 1</h3>
+                    <p>
+                        <a href="https://ethanmolino.github.io/A02.github.io/" target="_blank"
+                            rel="noopener noreferrer">
+                            Activity 2
+                        </a>
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Project 2</h3>
+                    <p>
+                        <a href="https://ethanmolino.github.io/Midterm.io/" target="_blank" rel="noopener noreferrer">
+                            Midterm
+                        </a>
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Project 3</h3>
+                    <p>description</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+    <script>
+        const sections = document.querySelectorAll(
+            "#home, #about, #projects"
+        );
+
+        const navLinks = document.querySelectorAll(".nav-links a");
+
+        function updateActiveNav() {
+            let currentSection = "home";
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+
+                if (sectionTop <= 180) {
+                    currentSection = section.id;
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+
+                if (link.getAttribute("href") === "#" + currentSection) {
+                    link.classList.add("active");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", updateActiveNav);
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", function () {
+                navLinks.forEach(item => item.classList.remove("active"));
+                this.classList.add("active");
+            });
+        });
+
+        updateActiveNav();
+    </script>
+
 </body>
 
 </html>
